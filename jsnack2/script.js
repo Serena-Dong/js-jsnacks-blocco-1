@@ -1,5 +1,5 @@
 //aggancio gli elementi
-const nAme = document.getElementById('name')
+const accesso = document.getElementById('name')
 const button = document.getElementById('button')
 const result = document.getElementById('result')
 
@@ -11,27 +11,28 @@ const allowedNames = [
     'Tom',
     'Nick',
     'Myrtle'
-]
+];
 
 //verifico l'autorizzazione
 button.addEventListener('click', function(){
 
-    const userName = nAme.value.trim();
+    const userName = accesso.value.trim();
 
     if(!userName){
-        result.innertext= "inserisci il nome";
+        result.innerText = "inserisci il nome";
         return;
     }
 
     let isAllowed = false;
 
-    for (let i=0; !userName && i < allowedNames.length; i++){
+    for (let i = 0; !isAllowed && i < allowedNames.length; i++){
         const currentNames = allowedNames[i];
+        console.log(currentNames, userName);
 
         if ( currentNames === userName){
             isAllowed = true;
         }
     }
-
+    result.innerText = isAllowed ? "Benvenuto alla festa!" : "Spiacente, non sei stato invitato."
 
 })
